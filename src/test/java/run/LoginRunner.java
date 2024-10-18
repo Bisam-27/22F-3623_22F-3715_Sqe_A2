@@ -13,5 +13,4 @@ import io.cucumber.junit.CucumberOptions;
     publish = true
 )
 public class LoginRunner {
-    // Empty class, Cucumber handles the execution
 }
