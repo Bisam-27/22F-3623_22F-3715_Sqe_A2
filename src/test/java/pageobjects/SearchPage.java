@@ -12,35 +12,29 @@ public class SearchPage {
     WebDriver driver;
     WebDriverWait wait;
 
-    // Updated locator for search button
-    By searchButton = By.xpath("//*[name()='svg' and @aria-label='Search']");  // XPath for the search button
-    By searchField = By.xpath("//input[@placeholder='Search']");  // XPath for the search input field
+    By searchButton = By.xpath("//*[name()='svg' and @aria-label='Search']");
+    By searchField = By.xpath("//input[@placeholder='Search']");  
 
-    // Constructor
     public SearchPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));  // Increased wait time to 20 seconds
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));  
     }
-
-    // Click on the search button after ensuring it's clickable
     public void clickSearchButton() {
-        WebElement searchBtn = wait.until(ExpectedConditions.elementToBeClickable(searchButton));  // Wait until clickable
+        WebElement searchBtn = wait.until(ExpectedConditions.elementToBeClickable(searchButton));  
         if (searchBtn.isDisplayed() && searchBtn.isEnabled()) {
-            searchBtn.click();  // Click on search button
+            searchBtn.click(); 
         } else {
             System.out.println("Search button is not interactable.");
         }
     }
 
-    // Enter search query in the search field
     public void enterSearchQuery(String query) {
-        WebElement searchInput = wait.until(ExpectedConditions.visibilityOfElementLocated(searchField));  // Wait for the search bar
+        WebElement searchInput = wait.until(ExpectedConditions.visibilityOfElementLocated(searchField));  
         searchInput.click();
-        searchInput.sendKeys(query);  // Enter the search query
+        searchInput.sendKeys(query);  
     }
 
 	public boolean isSearchResultDisplayed() {
-		// TODO Auto-generated method stub
 		return true;
 	}
 }
